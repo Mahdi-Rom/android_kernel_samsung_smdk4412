@@ -738,11 +738,7 @@ static int exynos_cpufreq_cpu_init(struct cpufreq_policy *policy)
 		cpumask_setall(policy->cpus);
 	}
 
-	int ret = cpufreq_frequency_table_cpuinfo(policy, exynos_info->freq_table);
-	/* set safe default min and max speeds - netarchy */
-	policy->max = CONFIG_DEFAULT_CLOCK_HIGH * 1000;
-	policy->min = CONFIG_DEFAULT_CLOCK_LOW * 1000;
-	return ret;
+	int ret = cpufreq_frequency_table_cpuinfo(policy, exynos_info->freq_table);	
 }
 
 /* Make sure we have the scaling_available_freqs sysfs file */
